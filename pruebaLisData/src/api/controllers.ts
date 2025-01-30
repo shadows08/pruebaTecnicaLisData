@@ -3,8 +3,10 @@ import { fetchApi } from "./networkUtils";
 import { QueryClient, useQuery, UseQueryResult } from "@tanstack/react-query";
 import { x } from "./helpers";
 import { Category } from "./types/model/dtos/categoryDTO";
-import { Subcategory } from "./types/model/dtos/SubcategoryDTO";
 import { Color } from "./types/model/dtos/colorDTO";
+import { Product } from "./types/model/dtos/productDTO";
+import { queryClient } from "./queryClient";
+import { Subcategory } from "./types/model/dtos/subcategoryDTO";
 const apiUrl: string = import.meta.env.VITE_API_URL;
 
 export const controllers = () => {
@@ -70,6 +72,32 @@ export const controllers = () => {
             queryKey: key,
             queryFn: () => fetchApi<Color[]>(queryConfig),
             enabled: !!idSubcategory,
+          }),
+        };
+      },
+
+      useGetProducts: (
+        idCategory: string | null,
+        idSubcategory: string | null,
+        idColor: string | null
+      ): {
+        invalidate: () => void;
+        reset: () => void;
+        query: UseQueryResult<Product[], Error>;
+      } => {
+        const key = categoryKeys.categories.getProducts(
+          idCategory,
+          idSubcategory,
+          idColor
+        );
+        const queryConfig = key[1] as { url: string; method: string };
+
+        return {
+          ...x(key, queryClient),
+          query: useQuery<Product[], Error>({
+            queryKey: key,
+            queryFn: () => fetchApi<Product[]>(queryConfig),
+            enabled: !!idCategory && !!idSubcategory && !!idColor,
           }),
         };
       },

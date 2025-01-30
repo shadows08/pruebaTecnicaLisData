@@ -25,5 +25,16 @@ export const getQueryKeysCategories = (apiUrl: string) => ({
         method: "get",
       } as QueryConfig,
     ],
+    getProducts: (
+      idCategory: string | null,
+      idSubcategory: string | null,
+      idColor: string | null
+    ): QueryKey => [
+      "products",
+      {
+        url: `${apiUrl}/product?id_category=${idCategory}&id_subcategory=${idSubcategory}&id_color=${idColor}`,
+        method: "get",
+      } as QueryConfig,
+    ],
   },
 });
