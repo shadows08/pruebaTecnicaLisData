@@ -1,10 +1,5 @@
 Aquí tienes el archivo README.md completo listo para usar:
 
-📄 README.md
-md
-Copiar
-Editar
-
 # 🚀 Proyecto Prueba Técnica LisData
 
 Bienvenido al proyecto **Prueba Técnica LisData**. Sigue estos pasos para instalar y ejecutar el proyecto correctamente.
