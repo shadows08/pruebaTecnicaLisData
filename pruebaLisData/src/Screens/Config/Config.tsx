@@ -104,7 +104,7 @@ const getStyles = (theme: any, currentStep: number) => ({
     "& .MuiStepLabel-label": {
       color:
         index === currentStep
-          ? theme.palette.grey[300]
+          ? theme.palette.common.white
           : theme.palette.common.white,
       fontWeight: index === currentStep ? "bold" : "normal",
     },
