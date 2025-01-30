@@ -23,7 +23,7 @@ cd pruebatecnicaLisData
 
 yarn create vite .
 
-###📦 Instalar las dependencias
+### 📦 Instalar las dependencias
 
 yarn install
 
