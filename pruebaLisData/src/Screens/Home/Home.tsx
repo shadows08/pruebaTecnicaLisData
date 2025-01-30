@@ -17,7 +17,10 @@ const Home = () => {
           text={i18n.home.welcome}
           color={theme.palette.colors.white}
         />
-        <LisButton onClick={() => navigate(ROUTES.CONFIG)}>
+        <LisButton
+          sx={{ marginTop: "16px" }}
+          onClick={() => navigate(ROUTES.CONFIG)}
+        >
           {i18n.home.start}
         </LisButton>
       </Grid>
